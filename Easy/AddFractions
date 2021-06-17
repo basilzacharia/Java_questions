@@ -1,0 +1,57 @@
+public class AddFractions {
+	public static int[] addFraction(int[] fraction1, int[] fraction2) {
+		if (fraction1.length != 2 || fraction2.length != 2) {
+			System.out.println("must be 2");
+		}
+		int num1 = fraction1[0];
+		int den1 = fraction1[1];
+		int num2 = fraction2[0];
+		int den2 = fraction2[1];
+		int resultnum = 0, resultden = 0;
+
+		if (den1 == 0 || den2 == 0) {
+			System.out.println("den can't be zero");
+		} else if (den1 == den2) {
+			resultnum = num1 + num2;
+			resultden = den1;
+		} else {
+			resultnum = num1 * den2 + num2 * den1;
+			resultden = den1 * den2;
+		}
+
+		int gcd = findGCD(resultnum, resultden);
+		return (new int[] { resultnum / gcd, resultden / gcd });
+
+//        fraction1= new int[]{2,3};
+//        fraction2=new int[] {1,2};
+//        //int[] result=new int[fraction1 +fraction2];
+//      return(new int[]{0,0});
+	}
+
+	public static int findGCD(int n1, int n2) {
+		int gcd = 1;
+		for (int i = 1; i <= n1 && i <= n2; i++) {
+			if (n1 % i == 0 && n2 % i == 0)
+				gcd = i;
+		}
+		return gcd;
+	}
+//-Return true if all the test cases pass.
+
+	public static boolean doTestPass() {
+		// Implement the following test caes.Add more test cases if possible.
+
+		int[] result = addFraction(new int[] { 2, 3 }, new int[] { 1, 2 });
+		if (result[0] == 7 && result[1] == 6) {
+			System.out.println("test passed");
+			return true;
+		} else {
+			System.out.println("test failed");
+			return false;
+		}
+	}
+
+	public static void main(String args[]) {
+		doTestPass();
+	}
+}
