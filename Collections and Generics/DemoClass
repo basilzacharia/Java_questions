@@ -9,20 +9,25 @@ public class DemoClass {
 // 		values1[0] = "Basil";
 // 		values1[1] = 7;
 
-		Collection<Integer> values = new ArrayList<Integer>();
+		List<Integer> values = new ArrayList<Integer>();
 		values.add(3);
 		values.add(77);
 		values.add(88);
+		values.add(99);
+		values.add(2);
 
-		values.remove(77);
+		Collections.sort(values);
+		
+		values.forEach(System.out::println);
+
 // 		Iterator i = values.iterator();
 
 // 		while(i.hasNext()){
 // 		    System.out.println(i.next());
 // 		}
 
-		for (int i : values) {
-			System.out.println(i);
-		}
+//		for (int i : values) {
+//			System.out.println(i);
+//		}
 	}
 }
